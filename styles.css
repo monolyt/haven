@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "HedvigLettersSerif";
+    src: url("HedvigLettersSerif-Regular.woff2") format("woff2");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HedvigLettersSerif";
+    src: url("HedvigLettersSerif18pt-Regular.woff2") format("woff2");
+    font-style: bold;
+}
+
+:root {
+    --color-main-text: #000;
+    --color-main-border: #000;
+    --color-main-inverse: #fff;
+    --color-bg: #eeeced;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    color: white;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--color-main-border);
+    z-index: 10;
+}
+
+/* styles.css */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'HedvigLettersSerif', serif;
+    background-color: var(--color-bg);;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin-bottom: 0.5em;
+    font-size: 3em;
+    color: var(--color-main-text);
+}
+
+#timerDisplay {
+    font-size: 8em;
+    margin: 20px 0;
+    color: var(--color-main-text);
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+.timeButton, #startStopButton {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.timeButton {
+    background-color: #e7e7e7;
+    cursor: pointer;
+    border-radius: 90px;
+    border: 2px solid var(--color-main-border);
+}
+
+#startStopButton {
+    background-color: var(--color-main-text);
+    color: var(--color-bg);
+    cursor: pointer;
+    border-radius: 90px;
+    border: 2px solid var(--color-main-border);
+}
+
+#startStopButton:hover {
+    background-color: var(--color-bg);
+    color: var(--color-main-text);
+}
+
+#startStopButton:disabled, .timeButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#quoteDisplay {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--color-main-text);
+}

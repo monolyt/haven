@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven Meditation Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Haven</h1>
+        </header>
+
+        <div id="timerDisplay">00:00</div>
+
+        <div class="controls">
+            <button class="timeButton" data-time="300">5 min</button>
+            <button class="timeButton" data-time="600">10 min</button>
+            <button class="timeButton" data-time="1200">20 min</button>
+            <button class="timeButton" data-time="1800">30 min</button>
+            <button class="timeButton" data-time="2700">45 min</button>
+            <button class="timeButton" data-time="3600">1h</button>
+            <button class="timeButton" data-time="7200">2h</button>
+            <button id="startStopButton">Start</button>
+        </div>
+
+        <div id="quoteDisplay"></div>
+    </div>
+    <audio id="endSound" src="path-to-your-sound-file.mp3" preload="auto"></audio>
+    <script src="function.js"></script>
+</body>
+</html>
