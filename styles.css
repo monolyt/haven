@@ -1,3 +1,5 @@
+/* Typography */
+
 @font-face {
     font-family: "HedvigLettersSerif";
     src: url("HedvigLettersSerif-Regular.woff2") format("woff2");
@@ -10,26 +12,32 @@
     font-style: bold;
 }
 
+/* Variables */
+
 :root {
-    --color-main-text: #000;
-    --color-main-border: #000;
+    --color-main-text: #1B1B1B;
+    --color-main-border: #1B1B1B;
     --color-main-inverse: #fff;
-    --color-bg: #eeeced;
+    --color-bg: #eeeceb;
+    --padding: 2rem;
+    --font-size-large: 3em;
+    --font-size-medium: 1rem;
+    --font-size-small: 1.2em;
+    --border-radius: 34px;
+    --transition-duration: 0.4s;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-bg);
-    color: white;
-    padding: 10px 20px;
-    border-bottom: 2px solid var(--color-main-border);
-    z-index: 10;
+[data-theme="dark"] {
+    --color-main-text: #eeeceb;
+    --color-main-border: #FFF;
+    --color-main-inverse: #1B1B1B;
+    --color-bg: #1B1B1B;
 }
 
-/* styles.css */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     display: flex;
@@ -37,18 +45,97 @@ body {
     align-items: center;
     height: 100vh;
     font-family: 'HedvigLettersSerif', serif;
-    background-color: var(--color-bg);;
+    background-color: var(--color-bg);
 }
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100vw;
+    background-color: var(--color-bg);
+    padding: var(--padding);
+    border-bottom: 1px solid var(--color-main-border);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Centering h1 within header */
+header h1 {
+    margin: 0;
+    font-size: var(--font-size-large);
+    color: var(--color-main-text);
+    font-weight: normal;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Theme switch wrapper */
+.theme-switch-wrapper {
+    display: flex;
+    margin-left: auto;
+}
+
+.theme-switch-wrapper em {
+    font-size: var(--font-size-medium);
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 1.5rem;
+    position: relative;
+    width: 3rem;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: var(--color-bg);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: var(--transition-duration);
+    border: 1px solid var(--color-main-border);
+}
+
+.slider:before {
+    background-color: var(--color-main-border);
+    bottom: 0.09rem;
+    content: "";
+    height: 1.2rem;
+    left: 0.03rem;
+    position: absolute;
+    transition: var(--transition-duration);
+    width: 1.2rem;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: var(--border-radius);
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Timer container */
 
 .container {
     text-align: center;
     padding: 20px;
-}
-
-header h1 {
-    margin-bottom: 0.5em;
-    font-size: 3em;
-    color: var(--color-main-text);
 }
 
 #timerDisplay {
@@ -56,6 +143,8 @@ header h1 {
     margin: 20px 0;
     color: var(--color-main-text);
 }
+
+/* Timer controls */
 
 .controls {
     margin: 20px 0;
@@ -70,10 +159,11 @@ header h1 {
 }
 
 .timeButton {
-    background-color: #e7e7e7;
+    color: var(--color-main-text);
+    background-color: var(--color-bg);
     cursor: pointer;
     border-radius: 90px;
-    border: 2px solid var(--color-main-border);
+    border: 1px solid var(--color-main-border);
 }
 
 #startStopButton {
@@ -81,7 +171,7 @@ header h1 {
     color: var(--color-bg);
     cursor: pointer;
     border-radius: 90px;
-    border: 2px solid var(--color-main-border);
+    border: 1px solid var(--color-main-border);
 }
 
 #startStopButton:hover {
@@ -96,6 +186,44 @@ header h1 {
 
 #quoteDisplay {
     margin-top: 20px;
-    font-size: 1.2em;
+    font-size: var(--font-size-small);
     color: var(--color-main-text);
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    :root {
+        --font-size-large: 2.5em;
+        --font-size-medium: 0.9rem;
+        --font-size-small: 1em;
+    }
+
+    #timerDisplay {
+        font-size: 6em;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --font-size-large: 2em;
+        --font-size-medium: 0.8rem;
+        --font-size-small: 0.9em;
+    }
+
+    #timerDisplay {
+        font-size: 5em;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-large: 1.5em;
+        --font-size-medium: 0.7rem;
+        --font-size-small: 0.8em;
+    }
+
+    #timerDisplay {
+        font-size: 4em;
+    }
 }
