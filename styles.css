@@ -19,10 +19,10 @@
     --color-main-border: #1B1B1B;
     --color-main-inverse: #fff;
     --color-bg: #eeeceb;
-    --padding: 2rem;
-    --font-size-large: 3em;
-    --font-size-medium: 1rem;
-    --font-size-small: 1.2em;
+    --padding: 1.8rem;
+    --font-size-heading: 2.4em;
+    --font-size-button: 1.6rem;
+    --font-size-text: 1.2em;
     --border-radius: 34px;
     --transition-duration: 0.4s;
 }
@@ -34,9 +34,12 @@
     --color-bg: #1B1B1B;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { 
+    box-sizing: border-box; 
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale; 
+    text-rendering: optimizeLegibility; 
+} 
 
 body {
     margin: 0;
@@ -67,7 +70,7 @@ header {
 /* Centering h1 within header */
 header h1 {
     margin: 0;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-heading);
     color: var(--color-main-text);
     font-weight: normal;
     position: absolute;
@@ -82,7 +85,7 @@ header h1 {
 }
 
 .theme-switch-wrapper em {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-button);
 }
 
 .theme-switch {
@@ -156,6 +159,7 @@ input:checked + .slider:before {
     border: none;
     border-radius: 5px;
     font-size: 1em;
+    font-size: var(--font-size-button);
 }
 
 .timeButton {
@@ -186,7 +190,7 @@ input:checked + .slider:before {
 
 #quoteDisplay {
     margin-top: 20px;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-text);
     color: var(--color-main-text);
 }
 
@@ -194,9 +198,9 @@ input:checked + .slider:before {
 
 @media (max-width: 1200px) {
     :root {
-        --font-size-large: 2.5em;
-        --font-size-medium: 0.9rem;
-        --font-size-small: 1em;
+        --font-size-heading: 2.5em;
+        --font-size-button: 1em;
+        --font-size-text: 1em;
     }
 
     #timerDisplay {
@@ -206,9 +210,9 @@ input:checked + .slider:before {
 
 @media (max-width: 992px) {
     :root {
-        --font-size-large: 2em;
-        --font-size-medium: 0.8rem;
-        --font-size-small: 0.9em;
+        --font-size-heading: 2em;
+        --font-size-button: 0.9em;
+        --font-size-text: 0.9em;
     }
 
     #timerDisplay {
@@ -218,9 +222,9 @@ input:checked + .slider:before {
 
 @media (max-width: 768px) {
     :root {
-        --font-size-large: 1.5em;
-        --font-size-medium: 0.7rem;
-        --font-size-small: 0.8em;
+        --font-size-heading: 1.5em;
+        --font-size-button: 0.8em;
+        --font-size-text: 0.8em;
     }
 
     #timerDisplay {
