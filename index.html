@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple, beautiful meditation timer that helps you find a calm place on an overwhelming day.">
     <title>Haven Meditation Timer</title>
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -52,7 +53,7 @@
 <script src="assets/js/sidebar.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('/assets/js/sw.js')
             .then(registration => {
                 console.log('Service Worker registered with scope:', registration.scope);
             })

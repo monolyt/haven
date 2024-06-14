@@ -1,4 +1,4 @@
-// service-worker.js
+// sw.js
 const CACHE_NAME = 'haven-meditation-timer-cache-v1';
 const urlsToCache = [
     '/',
