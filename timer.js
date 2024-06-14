@@ -1,4 +1,3 @@
-// script.js
 let isRunning = false;
 let worker;
 
@@ -29,7 +28,6 @@ document.getElementById('startStopButton').addEventListener('click', function() 
 
             worker.onmessage = function(e) {
                 if (e.data.done) {
-                    document.getElementById('endSound').play();
                     isRunning = false;
                     document.getElementById('startStopButton').textContent = 'Start';
                     enableTimeButtons(true);
