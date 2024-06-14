@@ -192,6 +192,56 @@ input:checked + .slider:before {
     cursor: not-allowed;
 }
 
+/* Sidebar styling */
+.sidebar {
+    height: calc(100% - 24px - 2 * var(--padding)); /* Adjust based on the header height */
+    width: 50%;
+    position: fixed;
+    z-index: 1000;
+    top: calc(24px + 2 * var(--padding)); /* Adjust based on the header height */
+    left: -calc(50% + 1px); /* Ensure the sidebar is fully off-screen, including the border */
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    transition: left 1s;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-main-border);
+    border-right: 1px solid var(--color-main-border);
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar h2, .sidebar p {
+    color: var(--color-main-text);
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.close-btn {
+    color: var(--color-main-text);
+}
+
+#aboutLink {
+    margin-right: auto;
+    padding-right: 20px;
+    color: var(--color-main-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#aboutLink:hover {
+    text-decoration: underline;
+}
+
+/* Quotes */
+
 #quoteDisplay {
     margin-top: 20px;
     font-size: var(--font-size-text);
@@ -229,6 +279,11 @@ input:checked + .slider:before {
         --font-size-heading: 1.5em;
         --font-size-button: 0.8em;
         --font-size-text: 0.8em;
+    }
+
+    .sidebar {
+        width: 100%;
+        left: 1px;
     }
 
     #timerDisplay {

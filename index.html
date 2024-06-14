@@ -12,33 +12,43 @@
     <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>haven</h1>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
+<div class="container">
+    <header>
+        <h1>haven</h1>
+        <a href="#" id="aboutLink">About</a>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox" />
                 <div class="slider round"></div>
-            </div>
-        </header>
-
-        <div id="timerDisplay">00:00</div>
-
-        <div class="controls">
-            <button class="timeButton" data-time="10">10 sek</button>
-            <button class="timeButton" data-time="600">10 min</button>
-            <button class="timeButton" data-time="1200">20 min</button>
-            <button class="timeButton" data-time="1800">30 min</button>
-            <button class="timeButton" data-time="2700">45 min</button>
-            <button class="timeButton" data-time="3600">1h</button>
-            <button class="timeButton" data-time="7200">2h</button>
-            <button id="startStopButton">Start</button>
         </div>
+    </header>
 
-        <div id="quoteDisplay"></div>
+    <div id="timerDisplay">00:00</div>
+
+    <div class="controls">
+        <button class="timeButton" data-time="10">10 sek</button>
+        <button class="timeButton" data-time="600">10 min</button>
+        <button class="timeButton" data-time="1200">20 min</button>
+        <button class="timeButton" data-time="1800">30 min</button>
+        <button class="timeButton" data-time="2700">45 min</button>
+        <button class="timeButton" data-time="3600">1h</button>
+        <button class="timeButton" data-time="7200">2h</button>
+        <button id="startStopButton">Start</button>
     </div>
-    <audio id="endSound" src="assets/audio/singingbowl.mp3" preload="auto"></audio>
-    <script src="assets/js/timer.js"></script>
-    <script src="assets/js/theme.js"></script>
+
+    <div id="quoteDisplay"></div>
+
+    <div id="aboutSidebar" class="sidebar">
+        <div class="sidebar-content">
+            <span id="closeSidebar" class="close-btn">&times;</span>
+            <h2>About Haven Meditation Timer</h2>
+            <p>Here you can add your background information about the project...</p>
+        </div>
+    </div>
+</div>
+<audio id="endSound" src="assets/audio/singingbowl.mp3" preload="auto"></audio>
+<script src="assets/js/timer.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/sidebar.js"></script>
 </body>
 </html>
