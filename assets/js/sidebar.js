@@ -8,8 +8,6 @@ document.getElementById('closeSidebar').addEventListener('click', function() {
     sidebar.style.left = `-${sidebar.offsetWidth + 1}px`;
 });
 
-
-
 // Set initial position to fully off-screen
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('aboutSidebar');

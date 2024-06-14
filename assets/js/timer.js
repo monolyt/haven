@@ -1,10 +1,9 @@
-
-// script.js
+// timer.js
 let timer = 600; // Default timer value to 10 minutes (600 seconds)
 let isRunning = false;
 let countdown;
+let wakeLock = null;
 
-// Set initial timer display to 10 minutes
 document.addEventListener('DOMContentLoaded', function() {
     updateDisplay();
 });
@@ -22,6 +21,11 @@ document.getElementById('startStopButton').addEventListener('click', function() 
         isRunning = false;
         this.textContent = 'Start';
         enableTimeButtons(true);
+        if (wakeLock !== null) {
+            wakeLock.release().then(() => {
+                wakeLock = null;
+            });
+        }
     } else {
         isRunning = true;
         this.textContent = 'Stop';
@@ -35,8 +39,18 @@ document.getElementById('startStopButton').addEventListener('click', function() 
                 isRunning = false;
                 document.getElementById('startStopButton').textContent = 'Start';
                 enableTimeButtons(true);
+                if (wakeLock !== null) {
+                    wakeLock.release().then(() => {
+                        wakeLock = null;
+                    });
+                }
             }
         }, 1000);
+        if ('wakeLock' in navigator) {
+            requestWakeLock();
+        } else {
+            console.warn('Wake Lock API not supported. The timer may not function properly if the screen is locked.');
+        }
     }
 });
 
@@ -50,6 +64,18 @@ function enableTimeButtons(enable) {
     document.querySelectorAll('.timeButton').forEach(button => {
         button.disabled = !enable;
     });
+}
+
+async function requestWakeLock() {
+    try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        wakeLock.addEventListener('release', () => {
+            console.log('Wake Lock was released');
+        });
+        console.log('Wake Lock is active');
+    } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+    }
 }
 
 // Display random inspirational quotes
