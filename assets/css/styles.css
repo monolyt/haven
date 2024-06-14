@@ -2,13 +2,13 @@
 
 @font-face {
     font-family: "HedvigLettersSerif";
-    src: url("HedvigLettersSerif-Regular.woff2") format("woff2");
+    src: url("../fonts/HedvigLettersSerif-Regular.woff2") format("woff2");
     font-style: normal;
 }
 
 @font-face {
     font-family: "HedvigLettersSerif";
-    src: url("HedvigLettersSerif18pt-Regular.woff2") format("woff2");
+    src: url("../fonts/HedvigLettersSerif18pt-Regular.woff2") format("woff2");
     font-style: bold;
 }
 

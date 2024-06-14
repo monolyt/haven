@@ -1,12 +1,19 @@
-
-// script.js
 let timer = 600; // Default timer value to 10 minutes (600 seconds)
 let isRunning = false;
 let countdown;
 
-// Set initial timer display to 10 minutes
 document.addEventListener('DOMContentLoaded', function() {
     updateDisplay();
+    displayQuote();
+    if ('Notification' in window && navigator.serviceWorker) {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                navigator.serviceWorker.ready.then(registration => {
+                    registration.showNotification('Notifications enabled for the meditation timer.');
+                });
+            }
+        });
+    }
 });
 
 document.querySelectorAll('.timeButton').forEach(button => {
@@ -22,23 +29,38 @@ document.getElementById('startStopButton').addEventListener('click', function() 
         isRunning = false;
         this.textContent = 'Start';
         enableTimeButtons(true);
+        navigator.serviceWorker.ready.then(swRegistration => {
+            swRegistration.sync.register('stop-timer');
+        });
     } else {
         isRunning = true;
         this.textContent = 'Stop';
         enableTimeButtons(false);
-        countdown = setInterval(() => {
-            timer--;
-            updateDisplay();
-            if (timer <= 0) {
-                clearInterval(countdown);
-                document.getElementById('endSound').play();
-                isRunning = false;
-                document.getElementById('startStopButton').textContent = 'Start';
-                enableTimeButtons(true);
-            }
-        }, 1000);
+        startTimer();
     }
 });
+
+function startTimer() {
+    if ('serviceWorker' in navigator && 'SyncManager' in window) {
+        navigator.serviceWorker.ready.then(swRegistration => {
+            swRegistration.sync.register('start-timer');
+        });
+    } else {
+        countdown = setInterval(decrementTimer, 1000);
+    }
+}
+
+function decrementTimer() {
+    timer--;
+    updateDisplay();
+    if (timer <= 0) {
+        clearInterval(countdown);
+        document.getElementById('endSound').play();
+        isRunning = false;
+        document.getElementById('startStopButton').textContent = 'Start';
+        enableTimeButtons(true);
+    }
+}
 
 function updateDisplay() {
     const minutes = Math.floor(timer / 60);
@@ -65,4 +87,13 @@ function displayQuote() {
     quoteDisplay.textContent = randomQuote;
 }
 
-displayQuote();
+navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data.type === 'TIMER_END') {
+        document.getElementById('endSound').play();
+        isRunning = false;
+        document.getElementById('startStopButton').textContent = 'Start';
+        enableTimeButtons(true);
+    } else if (event.data.type === 'PLAY_SOUND') {
+        document.getElementById('endSound').play();
+    }
+});
