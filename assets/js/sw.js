@@ -12,7 +12,7 @@ const urlsToCache = [
     '/haven/apple-touch-icon.png',
     '/haven/favicon-32x32.png',
     '/haven/favicon-16x16.png',
-    '/haven/site.webmanifest'
+    '/haven/manifest.json'
 ];
 
 self.addEventListener('install', event => {
