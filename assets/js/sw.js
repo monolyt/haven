@@ -1,18 +1,18 @@
 // sw.js
 const CACHE_NAME = 'haven-meditation-timer-cache-v1';
 const urlsToCache = [
-    '/haven/', // ONLY IN GITHUB PAGES DEVELOPMENT REPLACE WITH `/` otherwise - remove everywhere then!
-    '/haven/index.html',
-    '/haven/assets/css/normalize.css',
-    '/haven/assets/css/styles.css',
-    '/haven/assets/js/timer.js',
-    '/haven/assets/js/theme.js',
-    '/haven/assets/js/sidebar.js',
-    '/haven/assets/audio/singingbowl.mp3',
-    '/haven/apple-touch-icon.png',
-    '/haven/favicon-32x32.png',
-    '/haven/favicon-16x16.png',
-    '/haven/manifest.json'
+    '/', // ONLY IN GITHUB PAGES DEVELOPMENT REPLACE WITH `/` otherwise - remove everywhere then!
+    '/index.html',
+    '/assets/css/normalize.css',
+    '/assets/css/styles.css',
+    '/assets/js/timer.js',
+    '/assets/js/theme.js',
+    '/assets/js/sidebar.js',
+    '/assets/audio/singingbowl.mp3',
+    '/apple-touch-icon.png',
+    '/favicon-32x32.png',
+    '/favicon-16x16.png',
+    '/manifest.json'
 ];
 
 self.addEventListener('install', event => {
