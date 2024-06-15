@@ -53,10 +53,6 @@ body {
     background-color: var(--color-bg);
 }
 
-p {
-    line-height: 1.5;
-}
-
 /* Header */
 header {
     position: fixed;
@@ -199,7 +195,7 @@ input:checked + .slider:before {
 /* Sidebar styling */
 .sidebar {
     height: calc(100% - 24px - 2 * var(--padding)); /* Adjust based on the header height */
-    width: 50%;
+    width: 35%;
     position: fixed;
     z-index: 1000;
     top: calc(24px + 2 * var(--padding)); /* Adjust based on the header height */
@@ -215,10 +211,16 @@ input:checked + .slider:before {
     justify-content: space-between;
 }
 
+.sidebar a {
+    color: var(--color-main-text);
+    text-decoration: underline;
+}
+
 .sidebar-content {
     padding: 20px;
     flex-grow: 1;
     text-align: left; /* Ensure text is left-aligned */
+    line-height: 1.7;
 }
 
 .sidebar h2, .sidebar p {
