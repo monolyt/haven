@@ -53,6 +53,10 @@ body {
     background-color: var(--color-bg);
 }
 
+p {
+    line-height: 1.5;
+}
+
 /* Header */
 header {
     position: fixed;
@@ -206,10 +210,15 @@ input:checked + .slider:before {
     padding-top: 20px;
     border-top: 1px solid var(--color-main-border);
     border-right: 1px solid var(--color-main-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebar-content {
     padding: 20px;
+    flex-grow: 1;
+    text-align: left; /* Ensure text is left-aligned */
 }
 
 .sidebar h2, .sidebar p {
@@ -239,6 +248,12 @@ input:checked + .slider:before {
 #aboutLink:hover {
     text-decoration: underline;
 }
+
+.sidebar-footer {
+    padding: 20px;
+    text-align: left; /* Ensure text is left-aligned */
+}
+
 
 /* Quotes */
 
