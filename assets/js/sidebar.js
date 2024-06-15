@@ -4,7 +4,7 @@ document.getElementById('aboutLink').addEventListener('click', function(e) {
     if (sidebar.style.left === '0px') {
         sidebar.style.left = `-${sidebar.offsetWidth + 1}px`;
     } else {
-        sidebar.style.left = '0px';
+        sidebar.style.left = '1px';
     }
 });
 

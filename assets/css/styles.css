@@ -21,11 +21,13 @@
     --color-bg: #eeeceb;
     --color-disabled: #B0B0B0;
     --padding: 1.8rem;
+    --text-padding: 1.8rem;
     --font-size-heading: 2.4em;
     --font-size-button: 1.2rem;
     --font-size-text: 1.2em;
     --border-radius: 34px;
     --transition-duration: 0.4s;
+    --line-height: 1.7;
 }
 
 [data-theme="dark"] {
@@ -51,6 +53,12 @@ body {
     height: 100vh;
     font-family: 'HedvigLettersSerif', serif;
     background-color: var(--color-bg);
+}
+
+ul, ol {
+    color: var(--color-main-text);
+    padding-left: 0.2rem;
+    list-style-position: inside;
 }
 
 /* Header */
@@ -115,7 +123,7 @@ header h1 {
 
 .slider:before {
     background-color: var(--color-main-border);
-    bottom: 0.1rem;
+    bottom: 0.122rem;
     content: "";
     height: 1.2rem;
     left: 0.03rem;
@@ -140,7 +148,7 @@ input:checked + .slider:before {
 
 .container {
     text-align: center;
-    padding: 20px;
+    padding: var(--text-padding);
 }
 
 #timerDisplay {
@@ -156,11 +164,10 @@ input:checked + .slider:before {
 }
 
 .timeButton, #startStopButton {
-    padding: 10px 20px;
+    padding: 0.5rem 1.0rem;
     margin: 5px;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
     font-size: var(--font-size-button);
 }
 
@@ -203,7 +210,7 @@ input:checked + .slider:before {
     background-color: var(--color-bg);
     overflow-x: hidden;
     transition: left 1s;
-    padding-top: 20px;
+    padding-top: var(--text-padding);
     border-top: 1px solid var(--color-main-border);
     border-right: 1px solid var(--color-main-border);
     display: flex;
@@ -217,10 +224,10 @@ input:checked + .slider:before {
 }
 
 .sidebar-content {
-    padding: 20px;
+    padding: var(--text-padding);
     flex-grow: 1;
     text-align: left; /* Ensure text is left-aligned */
-    line-height: 1.7;
+    line-height: var(--line-height);;
 }
 
 .sidebar h2, .sidebar p {
@@ -230,9 +237,9 @@ input:checked + .slider:before {
 .sidebar .close-btn {
     position: absolute;
     top: 10px;
-    right: 20px;
-    font-size: 36px;
+    right: 28px;
     cursor: pointer;
+    font-size: 36px;
 }
 
 .close-btn {
@@ -241,8 +248,9 @@ input:checked + .slider:before {
 
 #aboutLink {
     margin-right: auto;
-    padding-right: 20px;
+    padding-right: var(--text-padding);
     color: var(--color-main-text);
+    font-size: var(--font-size-text);
     text-decoration: none;
     cursor: pointer;
 }
@@ -252,7 +260,7 @@ input:checked + .slider:before {
 }
 
 .sidebar-footer {
-    padding: 20px;
+    padding: var(--text-padding);
     text-align: left; /* Ensure text is left-aligned */
 }
 
@@ -263,44 +271,58 @@ input:checked + .slider:before {
     margin-top: 20px;
     font-size: var(--font-size-text);
     color: var(--color-main-text);
+    line-height: var(--line-height);
 }
 
 /* Media Queries */
 
-@media (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
     :root {
-        --font-size-heading: 2.5em;
-        --font-size-button: 1em;
-        --font-size-text: 1em;
+        --font-size-heading: 2.5rem;
+        --font-size-button: 1.2rem;
+        --font-size-text: 1.2rem;
     }
-
+    .timeButton, #startStopButton {
+        padding: 0.5rem 1rem;
+    }
+    .sidebar {
+        width: 50%;
+        left: 2px;
+    }
     #timerDisplay {
         font-size: 6em;
     }
 }
 
-@media (max-width: 992px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
     :root {
         --font-size-heading: 2em;
-        --font-size-button: 0.9em;
-        --font-size-text: 0.9em;
+        --font-size-button: 1.2rem;
+        --font-size-text: 1.3rem;
     }
-
+    .timeButton, #startStopButton {
+        padding: 0.5rem 1rem;
+    }
+    .sidebar {
+        width: 50%;
+        left: 1px;
+    }
     #timerDisplay {
         font-size: 5em;
     }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     :root {
-        --font-size-heading: 1.5em;
-        --font-size-button: 0.8em;
-        --font-size-text: 0.8em;
+        --font-size-heading: 1.6em;
+        --font-size-button: 0.9em;
+        --font-size-text: 0.9em;
     }
-
+    .timeButton, #startStopButton {
+        padding: 0.5rem 1rem;
+    }
     .sidebar {
         width: 100%;
-        left: 1px;
     }
 
     #timerDisplay {
