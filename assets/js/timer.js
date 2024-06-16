@@ -1,25 +1,18 @@
-// timer.js
-let timer = 600; // Default timer value to 10 minutes (600 seconds)
-let isRunning = false;
+let timer = 0;
 let countdown;
+let isRunning = false;
 let wakeLock = null;
 
-document.addEventListener('DOMContentLoaded', function() {
-    updateDisplay();
-});
+// Request notification permission on page load
+if ('Notification' in window && Notification.permission !== 'granted') {
+    Notification.requestPermission();
+}
 
-document.querySelectorAll('.timeButton').forEach(button => {
-    button.addEventListener('click', function() {
-        timer = parseInt(this.getAttribute('data-time'), 10);
-        updateDisplay();
-    });
-});
-
-document.getElementById('startStopButton').addEventListener('click', function() {
+document.getElementById('startStopButton').addEventListener('click', function () {
     if (isRunning) {
         clearInterval(countdown);
         isRunning = false;
-        this.textContent = 'Start';
+        document.getElementById('startStopButton').textContent = 'Start';
         enableTimeButtons(true);
         if (wakeLock !== null) {
             wakeLock.release().then(() => {
@@ -28,14 +21,17 @@ document.getElementById('startStopButton').addEventListener('click', function() 
         }
     } else {
         isRunning = true;
-        this.textContent = 'Stop';
+        document.getElementById('startStopButton').textContent = 'Stop';
         enableTimeButtons(false);
+        const endTime = Date.now() + timer * 1000;
         countdown = setInterval(() => {
-            timer--;
+            const remainingTime = Math.max(0, endTime - Date.now());
+            timer = Math.ceil(remainingTime / 1000);
             updateDisplay();
             if (timer <= 0) {
                 clearInterval(countdown);
                 document.getElementById('endSound').play();
+                sendNotification();
                 isRunning = false;
                 document.getElementById('startStopButton').textContent = 'Start';
                 enableTimeButtons(true);
@@ -50,6 +46,7 @@ document.getElementById('startStopButton').addEventListener('click', function() 
             requestWakeLock();
         } else {
             console.warn('Wake Lock API not supported. The timer may not function properly if the screen is locked.');
+            alert('Wake Lock API not supported. The timer may not function properly if the screen is locked.');
         }
     }
 });
@@ -77,6 +74,32 @@ async function requestWakeLock() {
         console.error(`${err.name}, ${err.message}`);
     }
 }
+
+function sendNotification() {
+    if ('Notification' in window && Notification.permission === 'granted') {
+        new Notification('Timer finished', {
+            body: 'Your meditation timer has ended.',
+            icon: 'favicon-32x32.png'
+        });
+    } else if ('Notification' in window && Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification('Timer finished', {
+                    body: 'Your meditation timer has ended.',
+                    icon: 'favicon-32x32.png'
+                });
+            }
+        });
+    }
+}
+
+// Initialize timer buttons
+document.querySelectorAll('.timeButton').forEach(button => {
+    button.addEventListener('click', function () {
+        timer = parseInt(this.getAttribute('data-time'));
+        updateDisplay();
+    });
+});
 
 // Display random inspirational quotes
 const quotes = [
