@@ -123,17 +123,18 @@ header h1 {
 
 .slider:before {
     background-color: var(--color-main-border);
-    bottom: 0.122rem;
     content: "";
     height: 1.2rem;
-    left: 0.03rem;
-    position: absolute;
-    transition: var(--transition-duration);
     width: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 0.15rem;
+    transform: translateY(-50%);
+    transition: var(--transition-duration);
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translate(1.48rem, -50%);
 }
 
 .slider.round {

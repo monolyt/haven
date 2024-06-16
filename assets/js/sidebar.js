@@ -1,7 +1,7 @@
 document.getElementById('aboutLink').addEventListener('click', function(e) {
     e.preventDefault();
     const sidebar = document.getElementById('aboutSidebar');
-    if (sidebar.style.left === '0px') {
+    if (sidebar.style.left === '1px') {
         sidebar.style.left = `-${sidebar.offsetWidth + 1}px`;
     } else {
         sidebar.style.left = '1px';
@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('aboutSidebar');
     sidebar.style.transition = 'none'; // Disable transition
     sidebar.style.left = `-${sidebar.offsetWidth + 1}px`;
+    setTimeout(() => {
+        sidebar.style.transition = ''; // Re-enable transition
+    }, 20); // Re-enable after a short delay
+});
+
+// Ensure sidebar is off-screen on window resize
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('aboutSidebar');
+    sidebar.style.transition = 'none'; // Disable transition
+    if (sidebar.style.left !== '0px') {
+        sidebar.style.left = `-${sidebar.offsetWidth + 1}px`;
+    }
     setTimeout(() => {
         sidebar.style.transition = ''; // Re-enable transition
     }, 20); // Re-enable after a short delay
