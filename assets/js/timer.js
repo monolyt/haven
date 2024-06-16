@@ -1,4 +1,4 @@
-let timer = 0;
+let timer = 600;
 let countdown;
 let isRunning = false;
 let wakeLock = null;
@@ -7,6 +7,11 @@ let wakeLock = null;
 if ('Notification' in window && Notification.permission !== 'granted') {
     Notification.requestPermission();
 }
+
+// Set initial timer display to 10 minutes
+document.addEventListener('DOMContentLoaded', function() {
+    updateDisplay();
+});
 
 document.getElementById('startStopButton').addEventListener('click', function () {
     if (isRunning) {
@@ -100,18 +105,3 @@ document.querySelectorAll('.timeButton').forEach(button => {
         updateDisplay();
     });
 });
-
-// Display random inspirational quotes
-const quotes = [
-    "Peace comes from within. Do not seek it without. - Buddha",
-    "The quieter you become, the more you can hear. - Ram Dass",
-    "Within you, there is a stillness and a sanctuary to which you can retreat at any time. - Hermann Hesse"
-];
-
-function displayQuote() {
-    const quoteDisplay = document.getElementById('quoteDisplay');
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteDisplay.textContent = randomQuote;
-}
-
-displayQuote();
