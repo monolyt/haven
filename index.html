@@ -1,75 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple, beautiful meditation timer that helps you find a calm place on an overwhelming day.">
-    <title>Haven Meditation Timer</title>
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple, beautiful meditation timer that helps you find a calm place on an overwhelming day.">
+  <title>Haven Meditation Timer</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 <div class="container">
-    <header>
-        <h1>haven</h1>
-        <a href="#" id="aboutLink">About</a>
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-        </div>
-    </header>
-
-    <div id="timerDisplay">00:00</div>
-
-    <div class="controls">
-        <button class="timeButton" data-time="10">10 sek</button>
-        <button class="timeButton" data-time="600">10 min</button>
-        <button class="timeButton" data-time="1200">20 min</button>
-        <button class="timeButton" data-time="1800">30 min</button>
-        <button class="timeButton" data-time="2700">45 min</button>
-        <button class="timeButton" data-time="3600">1h</button>
-        <button class="timeButton" data-time="7200">2h</button>
-        <button id="startStopButton">Start</button>
+  <header>
+    <h1>haven</h1>
+    <a href="#" id="aboutLink" aria-label="About Haven">About</a>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" aria-label="Toggle dark mode"/>
+        <div class="slider round"></div>
+      </label>
     </div>
+  </header>
 
-    <div id="quoteDisplay"></div>
+  <div id="timerDisplay" role="timer" aria-live="polite" aria-atomic="true">00:00</div>
 
-    <div id="aboutSidebar" class="sidebar">
-        <span id="closeSidebar" class="close-btn">&times;</span>
-        <div class="sidebar-content">
-            <h2> Why haven?</h2>
-            <p>Haven is a free and open-source meditation timer. Unlike other apps, Haven is minimal and easy to use. Our goal is to help you focus on meditation without distractions.</p>
+  <div class="controls" role="region" aria-labelledby="controlsHeading">
+    <h2 id="controlsHeading" class="sr-only">Timer Controls</h2>
+    <button class="timeButton" data-time="10" aria-label="Set timer for 10 seconds">10 sek</button>
+    <button class="timeButton" data-time="600" aria-label="Set timer for 10 minutes">10 min</button>
+    <button class="timeButton" data-time="1200" aria-label="Set timer for 20 minutes">20 min</button>
+    <button class="timeButton" data-time="1800" aria-label="Set timer for 30 minutes">30 min</button>
+    <button class="timeButton" data-time="2700" aria-label="Set timer for 45 minutes">45 min</button>
+    <button class="timeButton" data-time="3600" aria-label="Set timer for 1 hour">1h</button>
+    <button class="timeButton" data-time="7200" aria-label="Set timer for 2 hours">2h</button>
+    <button id="startStopButton" aria-label="Start or stop timer">Start</button>
+  </div>
 
-            <h2>Key Features</h2>
-            <ul>
-                <li>Simple Design: Clean and uncluttered interface.</li>
-                <li>Installable: Use it offline like a native app.</li>
-                <li>Dark Mode: Calming dark mode for night-time use.</li>
-                <li>Accessible: User-friendly for everyone.</li>
-                <li>Open Source: Haven's code is openly visible for everyone.</li>
-            </ul>
+  <div id="quoteDisplay" role="region" aria-live="polite" aria-atomic="true"></div>
 
-            <h2>How to Use</h2>
-            <ol>
-                <li>Install: Add Haven to your home screen from your browser.</li>
-                <li>Set Timer: Choose your meditation time and chime.</li>
-                <li>Start: Begin meditating and enjoy the calm.</li>
-            </ol>
+  <div id="aboutSidebar" class="sidebar" role="complementary" aria-labelledby="aboutSidebarHeading">
+    <span id="closeSidebar" class="close-btn" role="button" aria-label="Close about section">&times;</span>
+    <div class="sidebar-content">
+      <h2 id="aboutSidebarHeading">Why haven?</h2>
+      <p>Haven is a free and open-source meditation timer. Unlike other apps, Haven is minimal and easy to use. Our goal is to help you focus on meditation without distractions.</p>
 
-            <h2>Contact</h2>
-            <p>We love feedback! Reach out at email@example.com.<br><br>
-            Thank you for choosing Haven.</p>
-        </div>
-        <div class="sidebar-footer">
-            <!-- Your footer content, e.g., copyright information -->
-            &copy; <a href="https://danielbarleben.com">2024 da ba media design & visual arts.</a><br>All rights reserved.
-        </div>
+      <h2>Key Features</h2>
+      <ul>
+        <li>Simple Design: Clean and uncluttered interface.</li>
+        <li>Installable: Use it offline like a native app.</li>
+        <li>Dark Mode: Calming dark mode for night-time use.</li>
+        <li>Accessible: User-friendly for everyone.</li>
+        <li>Open Source: Haven's code is openly visible for everyone.</li>
+      </ul>
+
+      <h2>How to Use</h2>
+      <ol>
+        <li>Install: Add Haven to your home screen from your browser.</li>
+        <li>Set Timer: Choose your meditation time and chime.</li>
+        <li>Start: Begin meditating and enjoy the calm.</li>
+      </ol>
+
+      <h2>Contact</h2>
+      <p>We love feedback! Reach out at email@example.com.<br><br>
+        Thank you for choosing Haven.</p>
     </div>
+    <div class="sidebar-footer">
+      <!-- Your footer content, e.g., copyright information -->
+      &copy; <a href="https://danielbarleben.com">2024 da ba media design & visual arts.</a><br>All rights reserved.
+    </div>
+  </div>
 
 </div>
 <audio id="endSound" src="assets/audio/singingbowl.mp3" preload="auto"></audio>
@@ -77,15 +79,15 @@
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/sidebar.js"></script>
 <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('assets/js/sw.js')
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('assets/js/sw.js')
             .then(registration => {
-                console.log('Service Worker registered with scope:', registration.scope);
+              console.log('Service Worker registered with scope:', registration.scope);
             })
             .catch(error => {
-                console.error('Service Worker registration failed:', error);
+              console.error('Service Worker registration failed:', error);
             });
-    }
+  }
 </script>
 </body>
 </html>
