@@ -75,36 +75,40 @@
 
 .cat {
     position: absolute;
-    top: 55vh;
-    left: 50vw;
-    width: 100%;
-    height: 100%;
+    bottom: -10rem;
+    right: -10rem;
+    width: 55vw;
+    height: auto;
     animation: cat-animation 8s infinite;
-    z-index: 2; /* Ensure it is in the background */
-}
-
-.sun {
-    position: absolute;
-    top: 10vh;
-    left: 10vw;
-    width: 10%;
-    height: 10%;
-    background-image: url("sun.svg");
     z-index: -1; /* Ensure it is in the background */
 }
 
-/* Desktop Styles */
-@media (min-width: 768px) {
+/* Tablet */
+@media only screen and (min-width: 992px) and (max-width: 1925px) {
     .cat {
-        width: 50vw; /* 50% of the viewport width */
+        bottom: -5rem;
+        right: -5rem;
+        width: 60vw; /* 100% of the viewport width */
         height: auto; /* Maintain aspect ratio */
     }
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
-    .cat {
-        width: 100vw; /* 100% of the viewport width */
+/* Mobile */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+   .cat {
+       bottom: -5rem;
+       right: -5rem;
+       width: 80vw; /* 100% of the viewport width */
+       height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Small mobile */
+@media only screen and (max-width: 768px) {
+.cat {
+        bottom: 0rem;
+        right: -5rem;
+        width: 120vw; /* 100% of the viewport width */
         height: auto; /* Maintain aspect ratio */
     }
 }
