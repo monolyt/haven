@@ -9,7 +9,6 @@
 @font-face {
     font-family: "Hedvig Letters Serif";
     src: url("../fonts/HedvigLettersSerif18pt-Regular.woff2") format("woff2");
-    font-style: bold;
 }
 
 /* Variables */
@@ -242,7 +241,7 @@ input:checked + .slider:before {
     position: fixed;
     z-index: 1000;
     top: calc(24px + 2 * var(--padding)); /* Adjust based on the header height */
-    left: -calc(50% + 1px); /* Ensure the sidebar is fully off-screen, including the border */
+    left: calc(50% + 1px); /* Ensure the sidebar is fully off-screen, including the border */
     background-color: var(--color-bg);
     overflow-x: hidden;
     transition: left 1s;
@@ -298,16 +297,6 @@ input:checked + .slider:before {
 .sidebar-footer {
     padding: var(--text-padding);
     text-align: left; /* Ensure text is left-aligned */
-}
-
-
-/* Quotes */
-
-#quoteDisplay {
-    margin-top: 20px;
-    font-size: var(--font-size-text);
-    color: var(--color-main-text);
-    line-height: var(--line-height);
 }
 
 /* Accessibility */

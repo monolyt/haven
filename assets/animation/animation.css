@@ -140,7 +140,7 @@
 /* Small mobile */
 @media only screen and (max-width: 768px) {
     .cat {
-        bottom: 0rem;
+        bottom: 0;
         right: -5rem;
         width: 120vw; /* 100% of the viewport width */
         height: auto; /* Maintain aspect ratio */
