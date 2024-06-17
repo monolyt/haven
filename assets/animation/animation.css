@@ -81,6 +81,7 @@
     height: auto;
     animation: cat-animation 8s infinite;
     z-index: -1; /* Ensure it is in the background */
+    overflow: hidden;
 }
 
 .no-transition .sun,

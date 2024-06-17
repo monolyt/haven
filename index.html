@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A simple, beautiful meditation timer that helps you find a calm place on an overwhelming day.">
-  <title>Haven Meditation Timer</title>
-  <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/animation/animation.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="manifest.json">
-  <link href="assets/js/sidebar.js" rel="preload" as="script">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A simple, beautiful meditation timer that helps you find a calm place on an overwhelming day.">
+    <title>Haven Meditation Timer</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/animation/animation.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link href="assets/js/sidebar.js" rel="preload" as="script">
 </head>
 <body>
 <header>
     <h1>haven</h1>
     <a href="#" id="aboutLink" aria-label="About Haven">About</a>
     <div class="theme-switch-wrapper">
-      <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" aria-label="Toggle dark mode"/>
-        <div class="slider round"></div>
-      </label>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" aria-label="Toggle dark mode"/>
+            <div class="slider round"></div>
+        </label>
     </div>
-  </header>
-<div class="cat"></div>
-<div class="sun"><img src="assets/animation/sun.svg" alt="Sun"></div>
-<div class="moon"><img src="assets/animation/moon.svg" alt="Moon"></div>
-
-<script>
+</header>
+<div class="background">
+    <script>
         // List of images to preload
         const images = [
             'assets/animation/cat-base.svg',
@@ -66,68 +64,75 @@
             cat.style.opacity = 1; // Show the animation
         });
     </script>
+    <div class="cat"></div>
+    <img src="assets/animation/sun.svg" class="sun" alt="Sun">
+    <img src="assets/animation/moon.svg" class="moon" alt="Moon">
+</div>
+
 <div class="container">
 
-  <div id="timerDisplay" role="timer">00:00</div>
+    <div id="timerDisplay" role="timer">00:00</div>
 
-  <div class="controls" role="region" aria-labelledby="controlsHeading">
-    <h2 id="controlsHeading" class="sr-only">Timer Controls</h2>
-    <button class="timeButton" data-time="300" aria-label="Set timer for 5 minutes">5 min</button>
-    <button class="timeButton" data-time="600" aria-label="Set timer for 10 minutes">10 min</button>
-    <button class="timeButton" data-time="1200" aria-label="Set timer for 20 minutes">20 min</button>
-    <button class="timeButton" data-time="1800" aria-label="Set timer for 30 minutes">30 min</button>
-    <button class="timeButton" data-time="2700" aria-label="Set timer for 45 minutes">45 min</button>
-    <button class="timeButton" data-time="3600" aria-label="Set timer for 1 hour">60 min</button>
-    <button class="timeButton" data-time="7200" aria-label="Set timer for 2 hours">120 min</button>
-    <button id="startStopButton" aria-label="Start or stop timer">Start</button>
-  </div>
+    <div class="controls" role="region" aria-labelledby="controlsHeading">
+        <h2 id="controlsHeading" class="sr-only">Timer Controls</h2>
+        <button class="timeButton" data-time="300" aria-label="Set timer for 5 minutes">5 min</button>
+        <button class="timeButton" data-time="600" aria-label="Set timer for 10 minutes">10 min</button>
+        <button class="timeButton" data-time="1200" aria-label="Set timer for 20 minutes">20 min</button>
+        <button class="timeButton" data-time="1800" aria-label="Set timer for 30 minutes">30 min</button>
+        <button class="timeButton" data-time="2700" aria-label="Set timer for 45 minutes">45 min</button>
+        <button class="timeButton" data-time="3600" aria-label="Set timer for 1 hour">60 min</button>
+        <button class="timeButton" data-time="7200" aria-label="Set timer for 2 hours">120 min</button>
+        <button id="startStopButton" aria-label="Start or stop timer">Start</button>
+    </div>
 </div>
 <div id="aboutSidebar" class="sidebar" role="complementary" aria-labelledby="aboutSidebarHeading">
     <span id="closeSidebar" class="close-btn" role="button" aria-label="Close about section">&times;</span>
     <div class="sidebar-content">
-      <h2 id="aboutSidebarHeading">Why haven?</h2>
-      <p>Haven is a free and open-source meditation timer. Its simple user interface makes it very easy to use, so you can focus on meditation without getting distracted.</p>
+        <h2 id="aboutSidebarHeading">Why haven?</h2>
+        <p>Haven is a free and open-source meditation timer. Its simple user interface makes it very easy to use, so you
+            can focus on meditation without getting distracted.</p>
 
-      <h2>Key Features</h2>
-      <ul>
-        <li>Clean and uncluttered interface.</li>
-        <li>Use it offline like a native app.</li>
-        <li>Calming dark mode for night-time use.</li>
-        <li>User-friendly and accessible for everyone.</li>
-        <li>Haven's code is openly visible for everyone.</li>
-      </ul>
+        <h2>Key Features</h2>
+        <ul>
+            <li>Clean and uncluttered interface.</li>
+            <li>Use it offline like a native app.</li>
+            <li>Calming dark mode for night-time use.</li>
+            <li>User-friendly and accessible for everyone.</li>
+            <li>Haven's code is openly visible for everyone.</li>
+        </ul>
 
-      <h2>How to Use</h2>
-      <ol>
-        <li>Install Haven by adding it to your home screen from your browser.</li>
-        <li>Choose your meditation time and set the timer.</li>
-        <li>Begin meditating and enjoy the calm.</li>
-      </ol>
+        <h2>How to Use</h2>
+        <ol>
+            <li>Install Haven by adding it to your home screen from your browser.</li>
+            <li>Choose your meditation time and set the timer.</li>
+            <li>Begin meditating and enjoy the calm.</li>
+        </ol>
 
-      <h2>Contact</h2>
-      <p>Reach out by using the contact form <a href="https://danielbarleben.com/kontakt" target="_blank">here</a>.<br><br>
-        Thanks for choosing Haven ♥</p>
+        <h2>Contact</h2>
+        <p>Reach out by using the contact form <a href="https://danielbarleben.com/kontakt"
+                                                  target="_blank">here</a>.<br><br>
+            Thanks for choosing Haven ♥</p>
     </div>
     <div class="sidebar-footer">
-      <!-- Your footer content, e.g., copyright information -->
-      &copy; 2024 <a href="https://danielbarleben.com">daniel barleben</a><br>
-      Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+        <!-- Your footer content, e.g., copyright information -->
+        &copy; 2024 <a href="https://danielbarleben.com">daniel barleben</a><br>
+        Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
     </div>
-  </div>
+</div>
 <audio id="endSound" src="assets/audio/singingbowl.mp3" preload="auto"></audio>
 <script src="assets/js/timer.js"></script>
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/sidebar.js"></script>
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('assets/js/sw.js')
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('assets/js/sw.js')
             .then(registration => {
-              console.log('Service Worker registered with scope:', registration.scope);
+                console.log('Service Worker registered with scope:', registration.scope);
             })
             .catch(error => {
-              console.error('Service Worker registration failed:', error);
+                console.error('Service Worker registration failed:', error);
             });
-  }
+    }
 </script>
 </body>
 </html>
