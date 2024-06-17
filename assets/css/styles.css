@@ -2,12 +2,6 @@
 
 @font-face {
     font-family: "Hedvig Letters Serif";
-    src: url("../fonts/HedvigLettersSerif-Regular.woff2") format("woff2");
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Hedvig Letters Serif";
     src: url("../fonts/HedvigLettersSerif18pt-Regular.woff2") format("woff2");
 }
 
@@ -37,13 +31,13 @@
     --color-disabled: #696969;
 }
 
-* { 
-    box-sizing: border-box; 
-    -webkit-font-smoothing: antialiased; 
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-variant-ligatures: none;
-    text-rendering: optimizeLegibility; 
-} 
+    text-rendering: optimizeLegibility;
+}
 
 html, body {
     height: 100%;
@@ -67,16 +61,16 @@ body {
 
 ul, ol {
     color: var(--color-main-text);
-    list-style-position: outside;  /* Bullets and numbers outside the text */
-    margin-top: 1rem;  /* Add space above the list */
-    margin-bottom: 1rem;  /* Add space below the list */
-    padding-left: 1.0rem;  /* Space the beginning of text to the right */
+    list-style-position: outside; /* Bullets and numbers outside the text */
+    margin-top: 1rem; /* Add space above the list */
+    margin-bottom: 1rem; /* Add space below the list */
+    padding-left: 1.0rem; /* Space the beginning of text to the right */
 }
 
 ul li, ol li {
-    margin-bottom: 0.5rem;  /* Add space between list items */
-    line-height: 1.8;  /* Improve line height for better readability */
-    padding-left: 1.0rem;  /* Align the second line with the first line */
+    margin-bottom: 0.5rem; /* Add space between list items */
+    line-height: 1.8; /* Improve line height for better readability */
+    padding-left: 1.0rem; /* Align the second line with the first line */
 }
 
 
@@ -228,7 +222,7 @@ input:checked + .slider:before {
 }
 
 #startStopButton:disabled, .timeButton:disabled {
-/*    background-color: var(--color-disabled);*/
+    /*    background-color: var(--color-disabled);*/
     border-color: var(--color-disabled);
     color: var(--color-disabled);
     cursor: not-allowed;
@@ -326,13 +320,16 @@ button:focus-visible {
         --font-size-button: 1.2rem;
         --font-size-text: 1.2rem;
     }
+
     .timeButton, #startStopButton {
         padding: 0.5rem 1rem;
     }
+
     .sidebar {
         width: 50%;
         left: 2px;
     }
+
     #timerDisplay {
         font-size: 6em;
     }
@@ -344,13 +341,16 @@ button:focus-visible {
         --font-size-button: 1.2rem;
         --font-size-text: 1.3rem;
     }
+
     .timeButton, #startStopButton {
         padding: 0.5rem 1rem;
     }
+
     .sidebar {
         width: 50%;
         left: 1px;
     }
+
     #timerDisplay {
         font-size: 5em;
     }
@@ -362,9 +362,11 @@ button:focus-visible {
         --font-size-button: 0.9em;
         --font-size-text: 0.9em;
     }
+
     .timeButton, #startStopButton {
         padding: 0.5rem 1rem;
     }
+
     .sidebar {
         width: 100%;
     }

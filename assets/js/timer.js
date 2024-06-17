@@ -9,7 +9,7 @@ if ('Notification' in window && Notification.permission !== 'granted') {
 }
 
 // Set initial timer display to 10 minutes
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     updateDisplay();
 });
 
