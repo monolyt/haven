@@ -1,0 +1,110 @@
+@keyframes cat-animation {
+    0% {
+        content: url('cat-base.svg');
+    }
+    25% {
+        content: url('cat-base.svg');
+    }
+    25.5% {
+        content: url('cat-blink1.svg');
+    }
+    26% {
+        content: url('cat-blink2.svg');
+    }
+    26.5% {
+        content: url('cat-blink3-closed.svg');
+    }
+    27.5% {
+        content: url('cat-blink2.svg');
+    }
+    28% {
+        content: url('cat-blink1.svg');
+    }
+    28.5% {
+        content: url('cat-eyesleft1.svg');
+    }
+    29% {
+        content: url('cat-eyesleft2.svg');
+    }
+    29.5% {
+        content: url('cat-eyesleft3.svg');
+    }
+    30% {
+        content: url('cat-eyesleft4.svg');
+    }
+    30.5% {
+        content: url('cat-eyesleft5.svg');
+    }
+    60% {
+        content: url('cat-eyesleft5.svg');
+    }
+    60.5% {
+        content: url('cat-eyesleft4.svg');
+    }
+    61% {
+        content: url('cat-eyesleft3.svg');
+    }
+    61.5% {
+        content: url('cat-eyesleft2.svg');
+    }
+    62% {
+        content: url('cat-eyesleft1.svg');
+    }
+    62.5% {
+        content: url('cat-blink1.svg');
+    }
+    63% {
+        content: url('cat-blink2.svg');
+    }
+    63.5% {
+        content: url('cat-blink3-closed.svg');
+    }
+    64% {
+        content: url('cat-blink2.svg');
+    }
+    64.5% {
+        content: url('cat-blink1.svg');
+    }
+    65% {
+        content: url('cat-base.svg');
+    }
+    100% {
+        content: url('cat-base.svg');
+    }
+}
+
+.cat {
+    position: absolute;
+    top: 55vh;
+    left: 50vw;
+    width: 100%;
+    height: 100%;
+    animation: cat-animation 8s infinite;
+    z-index: 2; /* Ensure it is in the background */
+}
+
+.sun {
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+    width: 10%;
+    height: 10%;
+    background-image: url("sun.svg");
+    z-index: -1; /* Ensure it is in the background */
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .cat {
+        width: 50vw; /* 50% of the viewport width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .cat {
+        width: 100vw; /* 100% of the viewport width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
