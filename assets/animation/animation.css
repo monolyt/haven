@@ -82,6 +82,7 @@
     animation: cat-animation 8s infinite;
     z-index: -1; /* Ensure it is in the background */
     overflow: hidden;
+    aspect-ratio: 1.78/1;
 }
 
 .no-transition .sun,
@@ -109,8 +110,7 @@
     .cat {
         bottom: -5rem;
         right: -5rem;
-        width: 60vw; /* 100% of the viewport width */
-        height: auto; /* Maintain aspect ratio */
+        width: 60vw;
     }
 
     .sun, .moon {
@@ -126,8 +126,7 @@
     .cat {
         bottom: -5rem;
         right: -5rem;
-        width: 80vw; /* 100% of the viewport width */
-        height: auto; /* Maintain aspect ratio */
+        width: 80vw;
     }
 
     .sun, .moon {
@@ -143,8 +142,7 @@
     .cat {
         bottom: 0;
         right: -5rem;
-        width: 120vw; /* 100% of the viewport width */
-        height: auto; /* Maintain aspect ratio */
+        width: 120vw;
     }
 
     .sun, .moon {
