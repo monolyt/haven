@@ -139,7 +139,7 @@ header h1 {
     width: 1.2rem;
     position: absolute;
     top: 50%;
-    left: 0.15rem;
+    left: 0.10rem;
     transform: translateY(-50%);
     transition: var(--transition-duration);
 }
@@ -161,6 +161,7 @@ input:checked + .slider:before {
 .container {
     text-align: center;
     padding: var(--text-padding);
+    border-radius: 90px;
 }
 
 #timerDisplay {
@@ -219,7 +220,7 @@ input:checked + .slider:before {
 /* Sidebar styling */
 .sidebar {
     height: calc(100% - 24px - 2 * var(--padding)); /* Adjust based on the header height */
-    width: 35%;
+    width: 25%;
     position: fixed;
     z-index: 1000;
     top: calc(24px + 2 * var(--padding)); /* Adjust based on the header height */

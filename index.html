@@ -15,10 +15,7 @@
   <link href="assets/js/sidebar.js" rel="preload" as="script">
 </head>
 <body>
-<div class="cat"></div>
-<div class="sun"></div>
-<div class="container">
-  <header>
+<header>
     <h1>haven</h1>
     <a href="#" id="aboutLink" aria-label="About Haven">About</a>
     <div class="theme-switch-wrapper">
@@ -28,6 +25,48 @@
       </label>
     </div>
   </header>
+<div class="cat"></div>
+<div class="sun"><img src="assets/animation/sun.svg" alt="Sun"></div>
+<div class="moon"><img src="assets/animation/moon.svg" alt="Moon"></div>
+
+<script>
+        // List of images to preload
+        const images = [
+            'assets/animation/cat-base.svg',
+            'assets/animation/cat-blink1.svg',
+            'assets/animation/cat-blink2.svg',
+            'assets/animation/cat-blink3-closed.svg',
+            'assets/animation/cat-eyesleft1.svg',
+            'assets/animation/cat-eyesleft2.svg',
+            'assets/animation/cat-eyesleft3.svg',
+            'assets/animation/cat-eyesleft4.svg',
+            'assets/animation/cat-eyesleft5.svg'
+        ];
+
+        // Preload images function
+        function preloadImages(imageArray, callback) {
+            let loadedImages = 0;
+            const totalImages = imageArray.length;
+
+            imageArray.forEach((src) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        callback();
+                    }
+                };
+            });
+        }
+
+        // Start animation after preloading images
+        preloadImages(images, () => {
+            const cat = document.querySelector('.cat');
+            cat.style.opacity = 1; // Show the animation
+        });
+    </script>
+<div class="container">
 
   <div id="timerDisplay" role="timer">00:00</div>
 
@@ -42,8 +81,8 @@
     <button class="timeButton" data-time="7200" aria-label="Set timer for 2 hours">120 min</button>
     <button id="startStopButton" aria-label="Start or stop timer">Start</button>
   </div>
-
-  <div id="aboutSidebar" class="sidebar" role="complementary" aria-labelledby="aboutSidebarHeading">
+</div>
+<div id="aboutSidebar" class="sidebar" role="complementary" aria-labelledby="aboutSidebarHeading">
     <span id="closeSidebar" class="close-btn" role="button" aria-label="Close about section">&times;</span>
     <div class="sidebar-content">
       <h2 id="aboutSidebarHeading">Why haven?</h2>
@@ -75,8 +114,6 @@
       Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
     </div>
   </div>
-
-</div>
 <audio id="endSound" src="assets/audio/singingbowl.mp3" preload="auto"></audio>
 <script src="assets/js/timer.js"></script>
 <script src="assets/js/theme.js"></script>
