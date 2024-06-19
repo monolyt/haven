@@ -16,6 +16,6 @@ Haven is a simple, beautiful meditation timer that helps you find a calm place o
 2. Tap the share button (square with an arrow pointing up).
 3. Tap "Add to Home Screen" and follow the prompts.
 ## Screenshot
-<p align="center"><img src="https://i.imgur.com/9SngHIY.png" width="60%"></p>
+<img src="https://i.imgur.com/9SngHIY.png"></p>
 ## License
 This project is licensed under the [CC bY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
